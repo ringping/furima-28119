@@ -23,11 +23,12 @@
 | Column          | Type    | Options     |
 | --------------- | ------- | ----------- |
 | name            | string  | null: false |
+| image           | string  | null: false |
 | introduce       | text    | null: false |
-| category_id     | integer  | null: false |
-| status_id       | integer  | null: false |
+| category_id     | integer | null: false |
+| status_id       | integer | null: false |
 | shipping_id     | integer | null: false |
-| send_address_id | integer  | null: false |
+| send_address_id | integer | null: false |
 | day_id          | integer | null: false |
 | price           | integer | null: false |
 

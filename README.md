@@ -30,7 +30,7 @@
 | send_address_id | integer    | null: false                    |
 | day_id          | integer    | null: false                    |
 | price           | integer    | null: false                    |
-| user_id         | references | null: false, foreign_key: true |
+| user            | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -60,7 +60,7 @@
 | city_number     | string     | null: false                    |
 | building        | string     |                                |  
 | phone_number    | string     | null: false                    |
-| memory_id       | references | null: false, foreign_key: true |
+| memory          | references | null: false, foreign_key: true |
 
 ### Association
 

@@ -24,10 +24,10 @@
 | --------------- | ------- | ----------- |
 | name            | string  | null: false |
 | introduce       | text    | null: false |
-| category_id     | string  | null: false |
-| status_id       | string  | null: false |
+| category_id     | integer  | null: false |
+| status_id       | integer  | null: false |
 | shipping_id     | integer | null: false |
-| send_address_id | string  | null: false |
+| send_address_id | integer  | null: false |
 | day_id          | integer | null: false |
 | price           | integer | null: false |
 
@@ -38,10 +38,10 @@
 
 ## memorys テーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| bought_item   | references | null: false, foreign_key: true |
-| bought_user   | references | null: false, foreign_key: true |
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| item   | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -54,10 +54,10 @@
 | Column          | Type    | Option       |
 | ----------------| ------- | ------------ |
 | post_number     | string  | null: false  |
-| prefecture      | string  | null: false  |
+| prefecture_id   | integer | null: false  |
 | city            | string  | null: false  |
 | city_number     | string  | null: false  |
-| building        | string  | null: false  |
+| building        | string  |              |  
 | phone_number    | string  | null: false  |
 
 ### Association

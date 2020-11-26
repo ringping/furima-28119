@@ -32,7 +32,7 @@ Metrics/BlockLength:
 Metrics/AbcSize:
  Max: 50
 
-# メソッドの中身が複雑になっていないか、Rubocopが計算して基準値を超えると警告を出す
+ # メソッドの中身が複雑になっていないか、Rubocopが計算して基準値を超えると警告を出す
 Metrics/PerceivedComplexity:
  Max: 8
 
@@ -72,7 +72,7 @@ Style/Documentation:
 Style/SymbolArray:
  Enabled: false
 
-# 文字列に値が代入されて変わっていないかチェック（無効）
+ # 文字列に値が代入されて変わっていないかチェック（無効）
 Style/FrozenStringLiteralComment:
  Enabled: false
 

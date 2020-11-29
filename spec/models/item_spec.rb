@@ -7,7 +7,7 @@ RSpec.describe Item, type: :model do
 
   describe '商品の出品がうまくいくとき' do
     context '商品出品がうまくいくとき' do
-      it 'name,introduce,category_id,status_id,shipping_id,send_address_id,day_id,priceが存在すれば登録ができる' do
+      it 'name,introduce,category_id,status_id,shipping_id,send_address_id,day_id,price,imageが存在すれば登録ができる' do
         expect(@item).to be_valid
       end
       it 'priceが300~9999999の間の価格ならば登録ができる' do

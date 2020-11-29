@@ -9,5 +9,9 @@ FactoryBot.define do
     day_id            { '2' }
     price             { Faker::Number.within(range: 300..9_999_999) }
     association :user
+
+    after(:build) do |item|
+      item.image.attach(io: File.open('public/apple-touch-icon.png'), filename: 'apple-touch-icon.png')
+    end
   end
 end

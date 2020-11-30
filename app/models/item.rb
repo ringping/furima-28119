@@ -18,9 +18,11 @@ class Item < ApplicationRecord
   belongs_to :shipping
   belongs_to :status
 
-  validates :category_id, numericality: { other_than: 1 }
-  validates :day_id, numericality: { other_than: 1 }
-  validates :send_address_id, numericality: { other_than: 1 }
-  validates :shipping_id, numericality: { other_than: 1 }
-  validates :status_id, numericality: { other_than: 1 }
+  with_options numericality: { other_than: 1 } do
+    validates :category_id
+    validates :day_id
+    validates :send_address_id
+    validates :shipping_id
+    validates :status_id
+  end
 end

@@ -26,9 +26,9 @@ class ItemsController < ApplicationController
   def edit
   end
 
-  def destriy
-    item = Item.find(params[:id]).destroy
-  end
+  #def destriy
+    #item = Item.find(params[:id]).destroy
+  #end
   private
 
   def item_params

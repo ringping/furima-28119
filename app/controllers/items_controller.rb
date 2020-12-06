@@ -3,9 +3,8 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit]
   before_action :move_to_index, except: [:index, :show]
 
-
   def index
-    @items = Item.all.order("created_at DESC")
+    @items = Item.all.order('created_at DESC')
   end
 
   def new
@@ -31,14 +30,15 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
-       redirect_to item_path
+      redirect_to item_path
     else
       render :edit
     end
   end
-  #def destriy
-    #item = Item.find(params[:id]).destroy
-  #end
+  # def destriy
+  # item = Item.find(params[:id]).destroy
+  # end
+
   private
 
   def item_params
@@ -51,8 +51,6 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    unless current_user.id == @item.user_id 
-      redirect_to root_path
-    end
+    redirect_to root_path unless current_user.id == @item.user_id
   end
 end

@@ -1,17 +1,16 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index, :create]
   before_action :move_to_root, only:[:index, :create]
+  before_action :get_item, only:[:index, :create, :pay_item, :move_to_root]
  def index
-  @item = Item.find(params[:item_id])
   @user_order = UserOrder.new
  end
 
  def create
-  binding.pry
-  @item = Item.find(params[:item_id])
   @user_order = UserOrder.new(user_order_params)
   if @user_order.valid?
-    @user_order.save
+    pay_item
+    @user_order.save      
     redirect_to root_path
   else
     render action: :index
@@ -21,11 +20,28 @@ class OrdersController < ApplicationController
 
  private
   def user_order_params
-    params.require(:user_order).permit(:post_number, :city, :city_number, :phone_number, :order, :prefecture_id,).merge(user_id: current_user.id, item_id: params[:item_id])
+    params.require(:user_order).permit(:post_number, :city, :city_number, :phone_number, :order_id, :building, :prefecture_id,).merge(item_id: @item.id, user_id: current_user.id, token: params[:token])
+  end
+
+  def get_item
+    @item = Item.find(params[:item_id])
+  end
+
+
+  def pay_item
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp::Charge.create(
+      amount: @item.price,  # 商品の値段
+      card: user_order_params[:token],    # カードトークン
+      currency: 'jpy'                 # 通貨の種類（日本円）
+    )
   end
 
   def move_to_root
-    redirect_to root_path if current_user.id == @item.user_id || @item = nil
+    if order = Item.find(params[:item_id]).order
+       order.item_id.present? 
+      redirect_to root_path 
+    end
   end
 
 end

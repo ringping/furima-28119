@@ -7,7 +7,7 @@ RSpec.describe UserOrder, type: :model do
   
     describe '商品購入時の住所登録' do
       context '商品出品がうまくいくとき' do
-        it 'post_number,prefecture_id,city,city_number,phone_number,order_idが存在すれば登録ができる' do
+        it 'post_number,prefecture_id,city,city_number,phone_number,order_id,tokenが存在すれば登録ができる' do
           expect(@user_order).to be_valid
         end
       end
@@ -55,6 +55,11 @@ RSpec.describe UserOrder, type: :model do
           expect(@user_order.errors.full_messages).to include ("Phone number is invalid.")
         end
 
+        it 'tokenが空だと登録ができない' do
+          @user_order.token = nil
+          @user_order.valid?
+          expect(@user_order.errors.full_messages).to include ("Token can't be blank")
+        end
         
       end
     end

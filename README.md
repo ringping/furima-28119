@@ -16,7 +16,7 @@
 ### Association
 
 -has_many items
--has_many memorys
+-has_many orders
 
 ## items テーブル
 
@@ -35,7 +35,7 @@
 ### Association
 
 - belongs_to : user
-- has_one    : memory
+- has_one    : order
 
 ## orders テーブル
 

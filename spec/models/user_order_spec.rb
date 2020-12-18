@@ -5,14 +5,14 @@ RSpec.describe UserOrder, type: :model do
     @user_order = FactoryBot.build(:user_order)
   end
 
-  describe '商品購入時の住所登録' do
-    context '商品出品がうまくいくとき' do
+  describe '商品購入機能' do
+    context '商品購入がうまくいくとき' do
       it 'post_number,prefecture_id,city,city_number,phone_number,order_id,tokenが存在すれば登録ができる' do
         expect(@user_order).to be_valid
       end
     end
 
-    context '商品出品がうまくいかないとき' do
+    context '商品購入がうまくいかないとき' do
       it 'post_numberが存在しなければ登録ができない' do
         @user_order.post_number = nil
         @user_order.valid?

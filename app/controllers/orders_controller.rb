@@ -41,6 +41,7 @@ class OrdersController < ApplicationController
   def move_to_order
     if @item.order.present?
     redirect_to root_path
+    end
   end
 
   def move_to_user

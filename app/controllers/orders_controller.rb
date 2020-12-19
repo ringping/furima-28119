@@ -39,7 +39,7 @@ class OrdersController < ApplicationController
   end
 
   def move_to_order
-    @item.order.present?
+    if @item.order.present?
     redirect_to root_path
   end
 

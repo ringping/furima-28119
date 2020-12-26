@@ -36,6 +36,7 @@
 
 - belongs_to : user
 - has_one    : order
+- has_many   : comments
 
 ## orders テーブル
 
@@ -65,3 +66,13 @@
 ### Association
 
 - belongs_to : order
+
+## commentsテーブル
+
+| Column   | Type     | Option                         |
+| ---------| -------- | ------------------------------ |
+| text     | text     | null: false                    |
+
+### Asociation
+
+belongs_to :item

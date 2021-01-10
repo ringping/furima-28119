@@ -17,6 +17,7 @@
 
 -has_many items
 -has_many orders
+-has_many snscredentials
 
 ## items テーブル
 
@@ -76,3 +77,15 @@
 ### Asociation
 
 belongs_to :item
+
+## sns_credentialsテーブル
+
+| Column   | Type     | Option                         |
+| ---------| -------- | ------------------------------ |
+| provider | string   | null: false                    |
+| uid      | string   | null: false                    |
+| user     | string   | null: false, foreign_key: true |
+
+### Asociation
+
+belongs_to : user

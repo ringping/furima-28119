@@ -67,25 +67,3 @@
 ### Association
 
 - belongs_to : order
-
-## commentsテーブル
-
-| Column   | Type     | Option                         |
-| ---------| -------- | ------------------------------ |
-| text     | text     | null: false                    |
-
-### Asociation
-
-belongs_to :item
-
-## sns_credentialsテーブル
-
-| Column   | Type     | Option                         |
-| ---------| -------- | ------------------------------ |
-| provider | string   | null: false                    |
-| uid      | string   | null: false                    |
-| user     | string   | null: false, foreign_key: true |
-
-### Asociation
-
-belongs_to : user
